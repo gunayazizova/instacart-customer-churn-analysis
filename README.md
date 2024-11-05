@@ -1,2 +1,2 @@
-# amazon-customer-churn-analysis
+# instacart-customer-churn-analysis
  
