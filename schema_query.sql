@@ -1,6 +1,3 @@
-SELECT * FROM `key-cistern-441220-e2.instacart.order_products__prior` LIMIT 1000;
-
-
 SELECT
     od.order_id,
     od.user_id,
@@ -14,7 +11,9 @@ SELECT
     opp.reordered AS opp_reordered,
     p.product_name,
     a.aisle,
-    d.department
+    d.department,
+    opt.add_to_cart_order AS opt_add_to_cart_order,
+    opt.reordered AS opt_reordered
 FROM
     `key-cistern-441220-e2.instacart.orders` AS od
 JOIN
@@ -28,5 +27,10 @@ JOIN
     ON p.aisle_id = a.aisle_id
 JOIN
     `key-cistern-441220-e2.instacart.departments` AS d
-    ON p.department_id = d.department_id;
+    ON p.department_id = d.department_id
+LEFT JOIN
+    `key-cistern-441220-e2.instacart.order_products__train` AS opt
+    ON od.order_id = opt.order_id
+    AND opp.product_id = opt.product_id;
+
 
