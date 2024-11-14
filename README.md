@@ -1,4 +1,5 @@
 # 🛒 🥕 Instacart Market Analysis
+<img width="717" alt="Screenshot 2024-11-14 at 17 52 44" src="https://github.com/user-attachments/assets/edfa521f-1733-4287-8bca-adf789630dab">
 
 ## 🍏 Introduction
 Instacart is an American technology company that operates as a same-day grocery delivery and pick up service in the U.S. and Canada. Customers shop for groceries through the Instacart mobile app or Instacart.com from various retailer partners. The order is shopped and delivered by an Instacart personal shopper.
@@ -28,7 +29,7 @@ This python based machine learning project has below mentioned files.
 
 ## 🍄 EDA Analysis
 - General Analysis.
-- Analyzing Behavour of cutomers
+- Analyzing Behavour of customers
 - Analyzing products
 - Analyzing daily customer orders
 - Reordered ratio for Prior and Train
