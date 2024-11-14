@@ -5,52 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instacart Next Order Prediction</title>
     <style>
+        /* Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-image: url('https://images.unsplash.com/photo-1611586225152-5c0354c5b173'); /* Use a working image URL */
+            background-size: cover;
+            background-position: center;
             margin: 0;
             padding: 20px;
+            color: white; /* Set text color to white for better contrast with the background */
         }
-        h1 {
+        h1, h2 {
             text-align: center;
-            color: #28a745;
+            color: #0e9436; /* A vibrant color for headings */
         }
         .container {
             max-width: 800px;
             margin: auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Soft white background with opacity for better contrast */
+            padding: 30px;
+            border-radius: 10px;
         }
-        form {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-right: 10px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        .order-list {
+        .order-list, .recommended-products-section {
             margin-top: 20px;
         }
-        .order-item {
-            border: 1px solid #ddd;
+        .order-item, .recommended-product-item {
+            border: 1px solid #ff6347; /* Accent border color matching the header */
             border-radius: 8px;
-            margin-bottom: 20px;
             padding: 15px;
-            background-color: #ffffff;
+            background-color: #f8f9fa; /* Soft background for individual items */
+            margin-bottom: 15px;
         }
         .product-row {
             display: flex;
@@ -58,14 +42,12 @@
             gap: 10px;
             justify-content: start;
         }
-        .product-item {
-            flex: 1 1 calc(16.666% - 20px); /* 6 products in a row */
-            box-sizing: border-box;
-            text-align: center;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f1f1f1;
+        .single-product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 200px;
+            margin: auto;
         }
         .product-image img {
             max-width: 100%;
@@ -77,115 +59,51 @@
             margin-top: 8px;
             color: #333;
         }
-        .loading, .error {
-            text-align: center;
-            font-size: 18px;
-            color: #ff6347;
-        }
 
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #28a745;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .recommended-products-section {
-            margin-top: 30px;
-        }
-
-        .recommended-product-item {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            background-color: #ffffff;
-            margin-bottom: 15px;
+        /* Flex layout for Recommended Products and Predicted Products */
+        .product-row-single-line {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 20px;
         }
 
-        .recommended-product-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .recommended-product-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .recommended-product-info {
-            flex-grow: 1;
-        }
-
-        .recommended-product-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .recommended-product-description {
-            font-size: 14px;
-            color: #777;
-        }
-
-        .recommended-product-price {
-            font-size: 14px;
-            color: #28a745;
-        }
-
-        .predicted-order-list {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff;
+        .product-item {
+            flex: 0 0 150px; /* Fixed width for product items */
+            text-align: center;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
         }
-
-        .predicted-order-item {
-            margin: 5px 0;
-            font-size: 16px;
-        }
+        /* Other existing styles */
+        .order-item h3 {
+         color: black; /* Set Order ID text color to black */
+    }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Next Order Prediction</h1>
+        <h1>Instacart Next Order Prediction</h1>
         <form id="userForm">
             <input type="number" id="user_id" placeholder="Enter User ID" required>
             <button type="submit">Get Order</button>
         </form>
 
-        <div id="loading" class="loading" style="display: none;">
-            <div class="spinner"></div>
-            <p>Loading...</p>
-        </div>
-
-        <div id="error" class="error" style="display: none;"></div>
-
+        <div id="loading" style="display: none;">Loading...</div>
+        <div id="error" style="display: none; color: red;"></div>
         <div id="orderList" class="order-list"></div>
 
-        <h2 id="recommendedProductsTitle" style="display:none;">Recommended Products</h2>
-        <div id="recommendedProducts" class="recommended-products-section"></div>
+        <h2 id="recommendedProductsTitle" style="display: none;">Recommended Products</h2>
+        <div id="recommendedProducts" class="recommended-products-section product-row-single-line"></div>
 
         <div id="predictNextOrderDiv" style="display: none; text-align: center; margin-top: 20px;">
-            <button id="predictNextOrderBtn">Predict Next Order</button>
+            <button id="predictNextOrderBtn">Predict My Next Order</button>
         </div>
 
         <div id="predictedOrderDiv" class="order-item" style="display: none;">
             <h3>Predicted Next Order:</h3>
-            <div id="predictedOrderItems" class="product-row"></div>
+            <div id="predictedOrderItems" class="product-row-single-line"></div>
         </div>
     </div>
 
@@ -225,16 +143,16 @@
                 }
 
                 let orderList = document.getElementById('orderList');
-                let recommendedProducts = document.getElementById('recommendedProducts');
-                let recommendedProductsTitle = document.getElementById('recommendedProductsTitle');
-                let predictNextOrderDiv = document.getElementById('predictNextOrderDiv');
-
                 data.grouped_products.forEach(order => {
                     let orderItem = document.createElement('div');
                     orderItem.className = 'order-item';
+                    const productCount = order.product_name.length;
+
+                    // If only one product, use single-product layout
+                    const productRowClass = productCount === 1 ? 'single-product' : 'product-row';
                     orderItem.innerHTML = ` 
                         <h3>Order ID: ${order.order_id}</h3>
-                        <div class="product-row">
+                        <div class="${productRowClass}">
                             ${order.product_name.map((name, index) => ` 
                                 <div class="product-item">
                                     <div class="product-image"><img src="${order.image_urls[index]}" alt="${name}"></div>
@@ -246,22 +164,21 @@
                     orderList.appendChild(orderItem);
                 });
 
-                recommendedProductsTitle.style.display = 'block';
+                // Recommended products section
+                document.getElementById('recommendedProductsTitle').style.display = 'block';
                 data.recommended_products.forEach((product, index) => {
                     let recommendedProductItem = document.createElement('div');
                     recommendedProductItem.className = 'recommended-product-item';
                     recommendedProductItem.innerHTML = `
-                        <div class="recommended-product-image">
+                        <div class="product-image">
                             <img src="${data.recommended_products_images[index]}" alt="${product}">
                         </div>
-                        <div class="recommended-product-info">
-                            <div class="recommended-product-name">${product}</div>
-                        </div>
+                        <div class="product-name">${product}</div>
                     `;
-                    recommendedProducts.appendChild(recommendedProductItem);
+                    document.getElementById('recommendedProducts').appendChild(recommendedProductItem);
                 });
 
-                predictNextOrderDiv.style.display = 'block';
+                document.getElementById('predictNextOrderDiv').style.display = 'block';
             })
             .catch(error => {
                 document.getElementById('loading').style.display = 'none';
@@ -271,42 +188,41 @@
         });
 
         document.getElementById('predictNextOrderBtn').addEventListener('click', function() {
-        let userId = document.getElementById('user_id').value;
+            let userId = document.getElementById('user_id').value;
 
-        fetch(`/predict-next-order?user_id=${userId}`)
-        .then(response => response.json())
-        .then(data => {                
-            let predictedOrderDiv = document.getElementById('predictedOrderDiv');
-            let predictedOrderItems = document.getElementById('predictedOrderItems');
-            predictedOrderItems.innerHTML = '';  // Clear previous items
+            fetch(`/predict-next-order?user_id=${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                let predictedOrderItems = document.getElementById('predictedOrderItems');
+                predictedOrderItems.innerHTML = '';
 
-            data.predicted_next_order.forEach((product, index) => {
-                let productName = product.product_name;
-                let productImageUrl = data.predicted_next_order_images[index];                    
+                // Limit to only the first 5 products
+                let predictedProducts = data.predicted_next_order.slice(0, 5);
+                let predictedImages = data.predicted_next_order_images.slice(0, 5);
 
-                // Create order item div to match structure
-                let orderItem = document.createElement('div');
-                orderItem.className = 'order-item';  // Make sure to use 'order-item' class
-                orderItem.innerHTML = ` 
-                    <div class="product-row">  <!-- Use the same product-row class -->
-                        <div class="product-item">
-                            <div class="product-image">
-                                <img src="${productImageUrl}" alt="${productName}">
-                            </div>
-                            <div class="product-name">${productName}</div>
+                predictedProducts.forEach((product, index) => {
+                    let productName = product.product_name;
+                    let productImageUrl = predictedImages[index];
+
+                    let productItem = document.createElement('div');
+                    productItem.className = 'product-item';
+                    productItem.innerHTML = `
+                        <div class="product-image">
+                            <img src="${productImageUrl}" alt="${productName}">
                         </div>
-                    </div>
-                `;
-                predictedOrderItems.appendChild(orderItem);
-            });
+                        <div class="product-name">${productName}</div>
+                    `;
+                    predictedOrderItems.appendChild(productItem);
+                });
 
-            predictedOrderDiv.style.display = 'block';  // Make predicted order div visible
-        })
-        .catch(error => {
-            document.getElementById('error').innerHTML = "Error predicting next order.";
-            document.getElementById('error').style.display = 'block';
+                document.getElementById('predictedOrderDiv').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('error').innerHTML = "Error predicting next order.";
+                document.getElementById('error').style.display = 'block';
+            });
         });
-    });
+
     </script>
 </body>
 </html>
