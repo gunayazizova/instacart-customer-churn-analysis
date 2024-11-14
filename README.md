@@ -2,7 +2,7 @@
 <img width="1438" alt="Screenshot 2024-11-14 at 17 56 48" src="https://github.com/user-attachments/assets/1f3d23a5-aec8-4c2a-9379-0df2b73c2fc6">
 
 ## 🍏 Introduction
-Instacart is an American technology company that operates as a same-day grocery delivery and pick up service in the U.S. and Canada. Customers shop for groceries through the Instacart mobile app or Instacart.com from various retailer partners. The order is shopped and delivered by an Instacart personal shopper.
+Instacart is an American company that operates as a same-day grocery delivery and pick up service in the U.S. and Canada. Customers shop for groceries through the Instacart mobile app or Instacart.com from various retailer partners. The order is shopped and delivered by an Instacart personal shopper.
 
 ### 🍞 Objective
 The project aims to analyze grocery order data from Instacart, to investigate customer churn by identifying reasons for discontinuation and calculating the churn rate for the past 30 days. It will also involve predicting future 30 days churn percentages and developing retention strategies, along with building a machine learning model to forecast which products customers are likely to purchase in their next order.
@@ -11,7 +11,7 @@ The project aims to analyze grocery order data from Instacart, to investigate cu
 - Python Project
 - bigQuery
 - Jupiter notebook
-- Git Hub link- https://github.com/mirajkarsneha/instacart-customer-analysis
+- Git Hub link- https://github.com/gunayazizova/instacart-customer-churn-analysis
 - Presentation link - https://www.canva.com/design/DAGWKvxEsHU/R5cm3qXwB4TJXwdQcqpwFw/edit
 - Kaggle Dataset - https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis/data
 
@@ -45,6 +45,7 @@ This python based machine learning which has project has below mentioned files.
 https://github.com/user-attachments/assets/3dbfdfb2-4f9f-48ae-93a4-124292ad7281
 
 
+
 ## 🍗 Conclusion
 - The disengagement rate of 73.27% highlights the need for targeted retention strategies to re-engage at-risk users.  The model has 72% accuracy in predicting churn rate, performing better at identifying non-churn customers, with room for improvement in predicting churned users.
 - A correlation have been found between the top 10 products and top pair products, suggesting opportunities for cross-selling and bundling.  
@@ -67,8 +68,3 @@ Recommended products per user successfully identify top pair products, enabling 
     </td>
   </tr>
 </table>
-
-
-
-                 
-
