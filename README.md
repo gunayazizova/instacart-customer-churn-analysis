@@ -11,7 +11,7 @@ The project aims to analyze grocery order data from Instacart, to investigate cu
 - Python Project
 - bigQuery
 - Jupiter notebook
-- Git Hub link- https://github.com/mirajkarsneha/instacart-customer-analysis
+- Git Hub link- https://github.com/gunayazizova/instacart-customer-churn-analysis
 - Presentation link - https://www.canva.com/design/DAGWKvxEsHU/R5cm3qXwB4TJXwdQcqpwFw/edit
 - Kaggle Dataset - https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis/data
 
