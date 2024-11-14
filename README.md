@@ -47,6 +47,10 @@ This python based machine learning which has project has below mentioned files.
 - A correlation have been found between the top 10 products and top pair products, suggesting opportunities for cross-selling and bundling.  
 Recommended products per user successfully identify top pair products, enabling personalized recommendations. The model achieves 0.68% accuracy in predicting the next order, with room for improvement in forecasting both "Next Order" and "No Upcoming Order".
 
+
+https://github.com/user-attachments/assets/80d18385-455f-4cb6-ab72-e566fe34e302
+
+
 ## 🍓 Contributors
 <table align="center">
   <tr>
