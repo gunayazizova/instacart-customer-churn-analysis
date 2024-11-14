@@ -2,7 +2,7 @@
 <img width="1438" alt="Screenshot 2024-11-14 at 17 56 48" src="https://github.com/user-attachments/assets/1f3d23a5-aec8-4c2a-9379-0df2b73c2fc6">
 
 ## 🍏 Introduction
-Instacart is an American technology company that operates as a same-day grocery delivery and pick up service in the U.S. and Canada. Customers shop for groceries through the Instacart mobile app or Instacart.com from various retailer partners. The order is shopped and delivered by an Instacart personal shopper.
+Instacart is an American company that operates as a same-day grocery delivery and pick up service in the U.S. and Canada. Customers shop for groceries through the Instacart mobile app or Instacart.com from various retailer partners. The order is shopped and delivered by an Instacart personal shopper.
 
 ### 🍞 Objective
 The project aims to analyze grocery order data from Instacart, to investigate customer churn by identifying reasons for discontinuation and calculating the churn rate for the past 30 days. It will also involve predicting future 30 days churn percentages and developing retention strategies, along with building a machine learning model to forecast which products customers are likely to purchase in their next order.
@@ -40,7 +40,7 @@ This python based machine learning which has project has below mentioned files.
 5. Recommended Products per User
 6. Next Order Prediction
 
-![Instacart Dashboard](https://github.com/user-attachments/assets/9de12c2d-a07c-480c-9106-b1e53ca798e3)
+![Instacart Dashboard](https://github.com/user-attachments/assets/abc67009-b485-4085-b672-97b6b8daa3e2)
 
 ## 🍗 Conclusion
 - The disengagement rate of 73.27% highlights the need for targeted retention strategies to re-engage at-risk users.  The model has 72% accuracy in predicting churn rate, performing better at identifying non-churn customers, with room for improvement in predicting churned users.
