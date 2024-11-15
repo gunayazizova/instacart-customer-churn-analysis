@@ -40,7 +40,7 @@ This python based machine learning which has project has below mentioned files.
 5. Recommended Products per User
 6. Next Order Prediction
 
-![Instacart Dashboard](https://github.com/user-attachments/assets/9de12c2d-a07c-480c-9106-b1e53ca798e3)
+![Instacart Dashboard](https://github.com/user-attachments/assets/abc67009-b485-4085-b672-97b6b8daa3e2)
 
 https://github.com/user-attachments/assets/3dbfdfb2-4f9f-48ae-93a4-124292ad7281
 
