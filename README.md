@@ -16,6 +16,11 @@ The project aims to analyze grocery order data from Instacart, to investigate cu
 - Kaggle Dataset - https://www.kaggle.com/datasets/psparks/instacart-market-basket-analysis/data
 
 ## 🧀  Data Preparation
+- Data cleaning (missing values, duplicates)
+- EDA (correlation matrix),
+- Normalization (scaling the data),
+- Feature selection,
+- Modeling.
 
 ## 🍊 Project Structure
 This python based machine learning which has project has below mentioned files.
